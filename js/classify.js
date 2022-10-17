@@ -22,11 +22,11 @@ function classify() {
   // ---- //
   $("#type" + type).removeClass("table-active");
   if (gender == 0) {
-    if (height < 150 || weight < 40) {
+    if (height < 150 || weight < 41) {
       type = 5;
     } else if (
       (height >= 150 && height <= 153) ||
-      (weight >= 40 && weight <= 44)
+      (weight >= 41 && weight <= 44)
     ) {
       type = 4;
     } else if (
@@ -72,39 +72,21 @@ function classify() {
 
 function loadClassify() {
   var gender = $("#gender").val();
-  var type1weight = "";
-  var type1height = "";
-  var type2weight = "";
-  var type2height = "";
-  var type3weight = "";
-  var type3height = "";
-  var type4weight = "";
-  var type4height = "";
-  var type5weight = "";
-  var type5height = "";
-  if (gender == 0) {
-    type1weight = "50 trở lên";
-    type1height = "163 trở lên";
-    type2weight = "47 - 49";
-    type2height = "158 - 162";
-    type3weight = "45 - 46";
-    type3height = "154 - 157";
-    type4weight = "41 - 44";
-    type4height = "150 - 153";
-    type5weight = "dưới 40";
-    type5height = "dưới 150";
-  } else {
-    type1weight = "45 trở lên";
-    type1height = "155 trở lên";
-    type2weight = "43 - 44";
-    type2height = "151 - 154";
-    type3weight = "40 - 42";
-    type3height = "147 - 150";
-    type4weight = "38 - 39";
-    type4height = "143 - 146";
-    type5weight = "dưới 38";
-    type5height = "dưới 143";
-  }
+
+  var type1weight = gender == 0 ? "50 trở lên" : "45 trở lên";
+  var type1height = gender == 0 ? "163 trở lên" : "155 trở lên";
+
+  var type2weight = gender == 0 ? "47 - 49" : "43 - 44";
+  var type2height = gender == 0 ? "158 - 162" : "151 - 154";
+
+  var type3weight = gender == 0 ? "45 - 46" : "40 - 42";
+  var type3height = gender == 0 ? "154 - 157" : "147 - 150";
+
+  var type4weight = gender == 0 ? "41 - 44" : "38 - 39";
+  var type4height = gender == 0 ? "150 - 153" : "143 - 146";
+
+  var type5weight = gender == 0 ? "dưới 41" : "dưới 38";
+  var type5height = gender == 0 ? "dưới 150" : "dưới 143";
 
   $("#type1weight").html(type1weight);
   $("#type1height").html(type1height);
